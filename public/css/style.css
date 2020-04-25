@@ -1,0 +1,55 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.s-chat {
+  height: calc(100vh - 76px);
+}
+
+.s-chat_main {
+  padding: 10px 7.5px;
+}
+
+.s-chat_main_message {
+  font: 14px Arial;
+}
+
+.s-chat_main_message.m-self {
+  text-align: right;
+}
+
+.s-form {
+  /*height: 75px;*/
+}
+
+.s-form_main {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e1e1e1;
+  box-sizing: border-box;
+}
+
+.s-form_main_inp {
+  height: 75px;
+  width: calc(100% - 150px);
+  padding: 10px 7.5px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.s-form_main_btn {
+  height: 75px;
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-left: 1px solid #e1e1e1;
+  background: transparent;
+  font: 15px Arial;
+  cursor: pointer;
+}
