@@ -1,9 +1,9 @@
 let state = {
-  clientCount: 0,
+  talkerCount: 0,
   roomCount  : 0,
-  clients    : [ ],
+  talkers    : [ ],
   rooms      : [ ],
-  readyClient: undefined,
+  readyTalker: undefined,
 }
 
 module.exports = state;
