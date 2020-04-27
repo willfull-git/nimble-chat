@@ -2,22 +2,32 @@ const model  = require('./model.js');
 const Talker = require('./classTalker.js');
 const Room   = require('./classRoom.js');
 
+
 // Add Talker
 // =====
 function addTalker(wsc){
   let talker = new Talker('token', wsc);
 
   // Add new Room or 'ready talker'
-  processRoom(talker);
+  addRoom(talker);
 
   model.talkers.push(talker);
 
   // [event] message
   // -----
-  wsc.on('message', (msg)=>{
+  wsc.on('message', (txt)=>{
+    let
+      peer = talker.peer;
+      msg  = {
+        type: 'message',
+        txt:  txt
+      };
+
+    peer.wsc.send(JSON.stringify(msg));
+
     // Log
     console.log('-- message');
-    console.log(' - "' +msg+ '"');
+    console.log(' - "' +txt+ '"');
   });
 
   // [event] close
@@ -34,10 +44,30 @@ function addTalker(wsc){
   console.log(' - ' +model.talkers.length);
 }
 
+
+// Disable Talker
+// =====
+function disableTalker(talker){
+  let msg = {
+    type: 'disable',
+    txt:  'Your Peer has leave!'
+  };
+
+  talker.wsc.send(JSON.stringify(msg));
+
+  // Log
+  // -----
+  console.log('-- disable talker');
+  console.log(' - '+ msg.txt);
+}
+
+
 // Remoce Talker
 // =====
 function removeTalker(talker){
   model.talkers.splice(talker.id, 1);
+
+  removeRoom(talker.room, talker.peer);
 
   // Log
   // -----
@@ -46,9 +76,10 @@ function removeTalker(talker){
   console.log(' - ' +model.talkers.length);
 }
 
+
 // Add Room
 // =====
-function processRoom(talker){
+function addRoom(talker){
   // Check for 'ready talker'
   if(model.readyTalker && model.readyTalker instanceof Object){
     let
@@ -65,6 +96,17 @@ function processRoom(talker){
     console.log('-- set ready talker');
   }
 }
+
+
+// Remove Room
+// =====
+function removeRoom(room, peer){
+  model.rooms.splice(room.id, 1);
+
+  // Disable disconnected Talker's Peer
+  disableTalker(peer);
+}
+
 
 exports.addTalker    = addTalker;
 exports.removeTalker = removeTalker;
