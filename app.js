@@ -13,7 +13,7 @@ const expressWs = require('express-ws')(app);
 app.use(morgan('dev'));
 
 // Serving static files
-app.use(express.static('public'));
+app.use(express.static('public/dist'));
 
 // Router
 // -----

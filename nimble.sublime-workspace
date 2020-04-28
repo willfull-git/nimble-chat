@@ -8,38 +8,18 @@
 	"buffers":
 	[
 		{
-			"file": "app.js",
+			"file": "views/chat.html",
 			"settings":
 			{
-				"buffer_size": 737,
-				"encoding": "UTF-8",
+				"buffer_size": 762,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": ".gitignore",
+			"file": "public/css/style.css",
 			"settings":
 			{
-				"buffer_size": 65,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "modules/controller.js",
-			"settings":
-			{
-				"buffer_size": 880,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "modules/classTalker.js",
-			"settings":
-			{
-				"buffer_size": 342,
-				"encoding": "UTF-8",
+				"buffer_size": 778,
 				"line_ending": "Unix"
 			}
 		}
@@ -89,18 +69,21 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/willfull/Sandbox/nimble-chat",
 		"/Users/willfull/Sandbox/nimble-chat/modules"
 	],
 	"file_history":
 	[
+		"/Users/willfull/Sandbox/nimble-chat/app.js",
+		"/Users/willfull/Sandbox/nimble-chat/modules/controller.js",
+		"/Users/willfull/Sandbox/nimble-chat/public/js/main.js",
+		"/Users/willfull/Sandbox/nimble-chat/modules/model.js",
+		"/Users/willfull/Sandbox/nimble-chat/modules/classRoom.js",
+		"/Users/willfull/Sandbox/nimble-chat/modules/classTalker.js",
+		"/Users/willfull/Sandbox/nimble-chat/.gitignore",
 		"/Users/willfull/Sandbox/code-wars/main.js",
 		"/Users/willfull/Sandbox/nimble-chat/public/css/style.css",
 		"/Users/willfull/Sandbox/nimble-chat/views/chat.html",
-		"/Users/willfull/Sandbox/nimble-chat/public/js/main.js",
-		"/Users/willfull/Sandbox/nimble-chat/modules/model.js",
 		"/Users/willfull/Sandbox/nimble-chat/views/front.html",
-		"/Users/willfull/Sandbox/nimble-chat/.gitignore",
 		"/etc/services",
 		"/etc/service",
 		"/Users/willfull/Sandbox/node/sandbox/app.js",
@@ -217,15 +200,11 @@
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/inc/cpt.php",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/archive-lookbook.php",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/front/img/logo.svg",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/inc/puzzle-add-product-field.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/single-product/add-to-cart/variation-add-to-cart-button.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/assets/css/woocommerce/woocommerce.css",
-		"/Users/willfull/Server/natalia/wp-content/puzzle-shop (backup)/puzzle/inc/puzzle-woo-functions.php",
-		"/Users/willfull/Server/maugo/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-product-data-general.php"
+		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/inc/puzzle-add-product-field.php"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
@@ -239,6 +218,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".txt",
+			"addRoom",
+			"processRoom",
+			"addRool",
+			"processRool",
+			"processRoom",
+			"client",
 			"removeTalker",
 			"controller"
 		],
@@ -258,24 +244,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app.js",
+					"file": "views/chat.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 737,
+						"buffer_size": 762,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								456,
-								456
+								266,
+								266
 							]
 						],
 						"settings":
@@ -283,38 +269,9 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 65,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								65,
-								65
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -322,22 +279,28 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 2,
-					"file": "modules/controller.js",
+					"buffer": 1,
+					"file": "public/css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 880,
+						"buffer_size": 778,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								327,
-								327
+								0,
+								0
 							]
 						],
 						"settings":
@@ -345,44 +308,15 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "modules/classTalker.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 342,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								242,
-								242
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -390,7 +324,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 40.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -405,11 +339,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.655894639757,
 			1.0
 		],
 		"rows":
@@ -431,7 +372,7 @@
 	"project": "nimble.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -441,24 +382,28 @@
 		"selected_items":
 		[
 			[
+				"style.css",
+				"nimble-chat/public/css/style.css"
+			],
+			[
+				"chat.html",
+				"nimble-chat/views/chat.html"
+			],
+			[
 				".gitignore",
-				".gitignore"
+				"nimble-chat/.gitignore"
+			],
+			[
+				"main.js",
+				"nimble-chat/public/js/main.js"
 			],
 			[
 				"model.js",
 				"modules/model.js"
 			],
 			[
-				"chat.html",
-				"views/chat.html"
-			],
-			[
-				"main.js",
-				"public/js/main.js"
-			],
-			[
-				"style.css",
-				"public/css/style.css"
+				"classRoom.js",
+				"modules/classRoom.js"
 			],
 			[
 				"front.html",
@@ -947,10 +892,6 @@
 			[
 				"puzzle-tile-review",
 				"puzzle-blog/block/puzzle-tile-review.php"
-			],
-			[
-				"page-archive-review.js",
-				"js/page-archive-review.js"
 			]
 		],
 		"width": 0.0
@@ -980,7 +921,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 280.0,
 	"status_bar_visible": true,
 	"template_settings":

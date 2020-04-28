@@ -62,7 +62,7 @@ function disableTalker(talker){
 }
 
 
-// Remoce Talker
+// Remove Talker
 // =====
 function removeTalker(talker){
   model.talkers.splice(talker.id, 1);
@@ -105,6 +105,9 @@ function removeRoom(room, peer){
 
   // Disable disconnected Talker's Peer
   disableTalker(peer);
+
+  // Log
+  console.log('-- remove room');
 }
 
 
