@@ -63,8 +63,15 @@ function watch()
 
   // Bs - Init
   var server = bs.init({
-    server: './',
-    port: 8080
+    server: {
+      baseDir: './views',
+      index: 'chat.html'
+    },
+    port: 8080,
+    ui: {
+      port: 8081
+    },
+    serveStatic: ['./public/dist']
   });
 }
 

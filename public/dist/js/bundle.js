@@ -10882,22 +10882,22 @@ const $ = require('jquery');
 /*
  * # Web Socket - Create Client
  */
-const ws = new WebSocket('ws://localhost:80/');
+// const ws = new WebSocket('ws://localhost:80/');
 
-ws.onmessage = function(res){
-  let msg = JSON.parse(res.data);
+// ws.onmessage = function(res){
+//   let msg = JSON.parse(res.data);
 
-  // Log
-  console.log('-- message arrived');
-  console.log(msg);
+//   // Log
+//   console.log('-- message arrived');
+//   console.log(msg);
 
-  // Check Message type
-  if(msg.type==='disable'){
-    disableClient();
-  } else if(msg.type==='message'){
-    renderMessage(msg.txt, false);
-  }
-}
+//   // Check Message type
+//   if(msg.type==='disable'){
+//     disableClient();
+//   } else if(msg.type==='message'){
+//     renderMessage(msg.txt, false);
+//   }
+// }
 
 /*
  * Chat Main
