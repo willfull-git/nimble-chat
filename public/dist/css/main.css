@@ -264,3 +264,155 @@ template {
  */
 [hidden] {
   display: none; }
+
+/* ==============================
+ * Font
+ * ============================== */
+/*
+ * # Mixin - Font Face
+ */
+@font-face {
+  font-family: Open Sans;
+  src: url("/open-sans/open-sans-semibold.eot");
+  src: url("/open-sans/open-sans-semibold.eot?#iefix") format("embedded-opentype"), url("/open-sans/open-sans-semibold.woff2") format("woff2"), url("/open-sans/open-sans-semibold.woff") format("woff"), url("/open-sans/open-sans-semibold.ttf") format("truetype"), url("/open-sans/open-sans-semibold.svg#") format("svg");
+  font-weight: 750;
+  font-style: normal; }
+
+@font-face {
+  font-family: Open Sans;
+  src: url("/open-sans/open-sans-regular.eot");
+  src: url("/open-sans/open-sans-regular.eot?#iefix") format("embedded-opentype"), url("/open-sans/open-sans-regular.woff2") format("woff2"), url("/open-sans/open-sans-regular.woff") format("woff"), url("/open-sans/open-sans-regular.ttf") format("truetype"), url("/open-sans/open-sans-regular.svg#") format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: Open Sans;
+  src: url("/open-sans/open-sans-light.eot");
+  src: url("/open-sans/open-sans-light.eot?#iefix") format("embedded-opentype"), url("/open-sans/open-sans-light.woff2") format("woff2"), url("/open-sans/open-sans-light.woff") format("woff"), url("/open-sans/open-sans-light.ttf") format("truetype"), url("/open-sans/open-sans-light.svg#") format("svg");
+  font-weight: 250;
+  font-style: normal; }
+
+@font-face {
+  font-family: Open Sans;
+  src: url("/open-sans/open-sans-lightitalic.eot");
+  src: url("/open-sans/open-sans-lightitalic.eot?#iefix") format("embedded-opentype"), url("/open-sans/open-sans-lightitalic.woff2") format("woff2"), url("/open-sans/open-sans-lightitalic.woff") format("woff"), url("/open-sans/open-sans-lightitalic.ttf") format("truetype"), url("/open-sans/open-sans-lightitalic.svg#") format("svg");
+  font-weight: 250;
+  font-style: italic; }
+
+/* ==============================
+ * # VARIABLES
+ * ============================== */
+/* ==============================
+ * # BASE STYLES
+ * ============================== */
+html {
+  font: 500 12px 'Open Sans'; }
+
+.b-message_main {
+  max-width: 992px;
+  padding: 8px 0;
+  margin: auto;
+  display: flex; }
+  .b-message_main_txt {
+    padding: 8px;
+    border-radius: 5px;
+    position: relative; }
+    .b-message_main_txt:after {
+      content: '';
+      height: 0px;
+      width: 0px;
+      display: block;
+      border-color: #ff66ff transparent;
+      border-style: solid;
+      border-width: 5px 4px 0px 4px;
+      position: absolute;
+      bottom: -16%; }
+  .b-message_main_time {
+    height: 14px;
+    vertical-align: bottom;
+    align-self: flex-end; }
+
+.b-message.m-message_left {
+  background-color: rgba(255, 102, 255, 0.05); }
+  .b-message.m-message_left .b-message_main_txt {
+    order: 1;
+    background-color: #ff66ff;
+    color: #fff; }
+    .b-message.m-message_left .b-message_main_txt:after {
+      left: 10px; }
+  .b-message.m-message_left .b-message_main_time {
+    order: 2;
+    margin-left: 8px; }
+
+.b-message.m-message_right .b-message_main {
+  justify-content: flex-end; }
+  .b-message.m-message_right .b-message_main_txt {
+    order: 2;
+    background-color: #fff;
+    border: 1px solid #ff66ff;
+    color: #000; }
+    .b-message.m-message_right .b-message_main_txt:after {
+      left: unset;
+      right: 10px; }
+  .b-message.m-message_right .b-message_main_time {
+    order: 1;
+    margin-left: 0;
+    margin-right: 8px; }
+
+.b-message.m-message_disconnect {
+  background-color: rgba(255, 0, 0, 0.05); }
+  .b-message.m-message_disconnect .b-message_main_txt button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    text-decoration: underline;
+    outline: none;
+    cursor: pointer; }
+  .b-message.m-message_disconnect .b-message_main_txt:after {
+    display: none; }
+
+.s-chat {
+  height: calc(100vh - 40px);
+  width: 100vw;
+  padding: 30px 0;
+  box-sizing: border-box; }
+
+.s-btm-bar {
+  height: 40px;
+  width: 100vw;
+  background-color: rgba(255, 102, 255, 0.05); }
+  .s-btm-bar_form {
+    height: 40px;
+    max-width: 992px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .s-btm-bar_form_inp {
+      height: 30px;
+      width: 100%;
+      padding: 0 6px;
+      border: none;
+      border-radius: 5px;
+      resize: none;
+      outline: none;
+      line-height: 30px; }
+    .s-btm-bar_form_btn-disconnect, .s-btm-bar_form_btn-send {
+      height: 30px;
+      width: 30px;
+      margin-left: 4px;
+      border-radius: 5px;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      outline: none; }
+      .s-btm-bar_form_btn-disconnect img, .s-btm-bar_form_btn-send img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+    .s-btm-bar_form_btn-disconnect img {
+      width: 60%; }
+    .s-btm-bar_form_btn-send img {
+      width: 75%; }

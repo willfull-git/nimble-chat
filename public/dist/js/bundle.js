@@ -10873,7 +10873,19 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
+function disableClient(){
+  console.log('-- disable client');
+  console.log(' - ws:' );
+  console.log(ws);
+
+  ws.status = 'disable';
+}
+
+exports.disableClient = disableClient;
+},{}],3:[function(require,module,exports){
 const $ = require('jquery');
+const { renderMessage } = require('./render.js');
+const { disableClient } = require('./controllerClient.js');
 
 /* ==============================
  * # Web Socket
@@ -10882,22 +10894,22 @@ const $ = require('jquery');
 /*
  * # Web Socket - Create Client
  */
-// const ws = new WebSocket('ws://localhost:80/');
+const ws = new WebSocket('ws://localhost:80/');
 
-// ws.onmessage = function(res){
-//   let msg = JSON.parse(res.data);
+ws.onmessage = function(res){
+  let msg = JSON.parse(res.data);
 
-//   // Log
-//   console.log('-- message arrived');
-//   console.log(msg);
+  // Log
+  console.log('-- message arrived');
+  console.log(msg);
 
-//   // Check Message type
-//   if(msg.type==='disable'){
-//     disableClient();
-//   } else if(msg.type==='message'){
-//     renderMessage(msg.txt, false);
-//   }
-// }
+  // Check Message type
+  if(msg.type==='disable'){
+    disableClient();
+  } else if(msg.type==='message'){
+    renderMessage(msg, 'stranger');
+  }
+}
 
 /*
  * Chat Main
@@ -10908,9 +10920,9 @@ const $chatMain = $('.s-chat_main');
 /*
  * Chat Form
  */
-const $chatForm = $('.s-form_main');
-const $chatInp  = $('.s-form_main_inp');
-const $chatBtn  = $('.s-form_main_btn');
+const $chatForm = $('.s-btm-bar_form');
+const $chatInp  = $('.s-btm-bar_form_inp');
+const $chatBtn  = $('.s-btm-bar_form_btn');
 
 $chatForm.on('submit', (e)=>{
   e.preventDefault();
@@ -10931,7 +10943,7 @@ $chatForm.on('submit', (e)=>{
   if(message){
     ws.send(message);
 
-    renderMessage(message, true);
+    renderMessage({txt: message, type: 'message'}, 'self');
   } else {
     // Log
     console.log(' - message is empty!');
@@ -10939,22 +10951,95 @@ $chatForm.on('submit', (e)=>{
 
   $chatInp.val('');
 })
+},{"./controllerClient.js":2,"./render.js":5,"jquery":1}],4:[function(require,module,exports){
+const $      = require('jquery');
 
-function renderMessage(txt, self){
-  let $message = $('<div class="s-chat_main_message">' +txt+ '</div>');
+// # Template - Message
+// -----
+const tmpMessage = function(txt, source){
+  let
+    time          = new Date(),
+    timeFormatted = time.getHours()+':'+time.getMinutes(),
+    sourceClass   = source==='self'? 'm-message_right': 'm-message_left';
 
-  if(self){
-    $message.addClass('m-self');
-  };
+  return `
+    <div class="
+      b-message
+      ${sourceClass}
+    ">
+      <div class="
+        b-message_main
+      ">
+        <div class="
+          b-message_main_txt
+        ">
+          ${txt}
+        </div>
 
-  $chatMain.append($message);
+        <div class="
+          b-message_main_time
+        ">
+          ${timeFormatted}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
-function disableClient(){
-  console.log('-- disable client');
-  console.log(' - ws:' );
-  console.log(ws);
 
-  ws.status = 'disable';
+// # Template - Typing
+// -----
+const tmpTyping = function(txt){
+  `
+    
+  `;
 }
-},{"jquery":1}]},{},[2]);
+
+
+// # Template - Disconnect
+// -----
+const tmpDisconnect = function(txt){
+  `
+    
+  `;
+}
+
+
+exports.tmpMessage    = tmpMessage;
+exports.tmpTyping     = tmpTyping;
+exports.tmpDisconnect = tmpDisconnect;
+},{"jquery":1}],5:[function(require,module,exports){
+const $     = require('jquery');
+const $chat = $('.s-chat');
+const { tmpMessage, tmpTyping, tmpDisconnect } = require('./message-templates.js');
+
+
+// # Render Message
+// -----
+function renderMessage(msg, source){
+  let tmp;
+
+  // Log
+  console.log('-- render message');
+
+  // Find out 'message type'
+  if(msg.type==='message'){
+    // Log
+    console.log(' - message type message');
+    tmp = tmpMessage(msg.txt, source);
+
+  } else if(msg.type==='typing'){
+    tmp = tmpTyping(msg.txt, source);
+
+  } else if(msg.type==='disconnect'){
+    tmp = tmpDisconnect(msg.txt);
+  }
+
+  console.log(' - tmp: ');
+  console.log(tmp);
+
+  $chat.append(tmp);
+};
+
+exports.renderMessage = renderMessage;
+},{"./message-templates.js":4,"jquery":1}]},{},[3]);

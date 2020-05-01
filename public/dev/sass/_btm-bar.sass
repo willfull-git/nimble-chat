@@ -1,11 +1,48 @@
 .s-btm-bar
+  height: 40px
+  width: 100vw
+  background-color: $clr-fade
 
   &_form
+    height: 40px
+    max-width: 992px
+    margin: auto
+    display: flex
+    justify-content: space-between
+    align-items: center
 
     &_inp
+      height: 30px
+      width: 100%
+      padding: 0 6px
+      border: none
+      border-radius: 5px
+      resize: none
+      outline: none
+      line-height: 30px
 
     &_btn-disconnect, &_btn-send
+      height: 30px
+      width: 30px
+      margin-left: 4px
+      border-radius: 5px
+      border: none
+      position: relative
+      cursor: pointer
+      outline: none
+
+      img
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
 
     &_btn-disconnect
 
+      img
+        width: 60%
+
     &_btn-send
+
+      img
+        width: 75%

@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Nimble</title>
-  <!-- <link rel="stylesheet" href="css/style.css"> -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -14,36 +13,49 @@
     <div class="
       s-chat_main
     ">
-      
+<!--
+       <div class="
+        b-message
+        m-message_disconnect
+      ">
+        <div class="
+          b-message_main
+        ">
+          <div class="
+            b-message_main_txt
+          ">
+            Talker disconnected! <button type="button">Start new chat</button>
+          </div>
+        </div>
+      </div>
+-->
     </div>
   </div>
 
   <div class="
     s-btm-bar
   ">
-    <form action="" class="
+    <form id="message-form" action="" class="
       s-btm-bar_form
     ">
-      <input type="submit" value="disconnect" class="
-        s-btm-bar_btn-disconnect
-      ">
-
-      <textarea name="ws_message" type="text" class="
-        s-btm-bar_inp
+      <textarea id="message-inp" name="ws_message" type="text" class="
+        s-btm-bar_form_inp
       "> </textarea>
 
-      <input type="submit" value="send" class="
-        s-btm-bar_btn-send
+      <button id="btn-send" type="submit" value="send" class="
+        s-btm-bar_form_btn-send
       ">
+        <img src="i-send.svg" alt="">
+      </button>
+
+      <button id="btn-disconnect" type="button" value="disconnect" class="
+        s-btm-bar_form_btn-disconnect
+      ">
+        <img src="i-logout.svg" alt="">
+      </button>
     </form>
   </div>
 
-<!--
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
--->
 <script src="js/bundle.js"></script>
 </body>
 </html>

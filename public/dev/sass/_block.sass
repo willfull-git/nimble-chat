@@ -1,0 +1,85 @@
+.b-message
+
+  &_main
+    max-width: 992px
+    padding: 8px 0
+    margin: auto
+    display: flex
+
+    &_txt
+      padding: 8px
+      border-radius: 5px
+      position: relative
+
+      &:after
+        content: ''
+        height: 0px
+        width: 0px
+        display: block
+        border-color: $clr transparent
+        border-style: solid
+        border-width: 5px 4px 0px 4px
+        position: absolute
+        bottom: -16%
+
+    &_time
+      height: 14px
+      vertical-align: bottom
+      align-self: flex-end
+
+  &.m-message_left
+    background-color: $clr-fade
+
+    .b-message_main
+
+      &_txt
+        order: 1
+        background-color: $clr
+        color: #fff
+
+        &:after
+          left: 10px
+
+      &_time
+        order: 2
+        margin-left: 8px
+
+  &.m-message_right
+
+    .b-message_main
+      justify-content: flex-end
+
+      &_txt
+        order: 2
+        background-color: #fff
+        border: 1px solid $clr
+        color: #000
+
+        &:after
+          left: unset
+          right: 10px
+
+      &_time
+        order: 1
+        margin-left: 0
+        margin-right: 8px
+
+  &.m-message_disconnect
+    // background-color: rgba(, , , .05)
+    background-color: rgba(255, 0, 0, .05)
+
+    .b-message_main
+
+      &_txt
+
+        button
+          padding: 0
+          border: none
+          background-color: transparent
+          display: inline-block
+          text-decoration: underline
+          outline: none
+          cursor: pointer
+
+        &:after
+          display: none

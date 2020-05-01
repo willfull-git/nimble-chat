@@ -1,4 +1,6 @@
 const $ = require('jquery');
+const { renderMessage } = require('./render.js');
+const { disableClient } = require('./controllerClient.js');
 
 /* ==============================
  * # Web Socket
@@ -7,22 +9,22 @@ const $ = require('jquery');
 /*
  * # Web Socket - Create Client
  */
-// const ws = new WebSocket('ws://localhost:80/');
+const ws = new WebSocket('ws://localhost:80/');
 
-// ws.onmessage = function(res){
-//   let msg = JSON.parse(res.data);
+ws.onmessage = function(res){
+  let msg = JSON.parse(res.data);
 
-//   // Log
-//   console.log('-- message arrived');
-//   console.log(msg);
+  // Log
+  console.log('-- message arrived');
+  console.log(msg);
 
-//   // Check Message type
-//   if(msg.type==='disable'){
-//     disableClient();
-//   } else if(msg.type==='message'){
-//     renderMessage(msg.txt, false);
-//   }
-// }
+  // Check Message type
+  if(msg.type==='disable'){
+    disableClient();
+  } else if(msg.type==='message'){
+    renderMessage(msg, 'stranger');
+  }
+}
 
 /*
  * Chat Main
@@ -33,9 +35,9 @@ const $chatMain = $('.s-chat_main');
 /*
  * Chat Form
  */
-const $chatForm = $('.s-form_main');
-const $chatInp  = $('.s-form_main_inp');
-const $chatBtn  = $('.s-form_main_btn');
+const $chatForm = $('.s-btm-bar_form');
+const $chatInp  = $('.s-btm-bar_form_inp');
+const $chatBtn  = $('.s-btm-bar_form_btn');
 
 $chatForm.on('submit', (e)=>{
   e.preventDefault();
@@ -56,7 +58,7 @@ $chatForm.on('submit', (e)=>{
   if(message){
     ws.send(message);
 
-    renderMessage(message, true);
+    renderMessage({txt: message, type: 'message'}, 'self');
   } else {
     // Log
     console.log(' - message is empty!');
@@ -64,21 +66,3 @@ $chatForm.on('submit', (e)=>{
 
   $chatInp.val('');
 })
-
-function renderMessage(txt, self){
-  let $message = $('<div class="s-chat_main_message">' +txt+ '</div>');
-
-  if(self){
-    $message.addClass('m-self');
-  };
-
-  $chatMain.append($message);
-}
-
-function disableClient(){
-  console.log('-- disable client');
-  console.log(' - ws:' );
-  console.log(ws);
-
-  ws.status = 'disable';
-}

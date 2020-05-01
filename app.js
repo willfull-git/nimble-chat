@@ -14,6 +14,8 @@ app.use(morgan('dev'));
 
 // Serving static files
 app.use(express.static('public/dist'));
+app.use(express.static('public/fnt'));
+app.use(express.static('public/img'));
 
 // Router
 // -----

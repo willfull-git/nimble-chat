@@ -31,7 +31,6 @@ function addTalker(wsc){
   });
 
   // [event] close
-  // Resolve circular dependency. controller--Talker
   // -----
   wsc.on('close', (code, reason)=>{
     removeTalker(talker);
@@ -67,13 +66,18 @@ function disableTalker(talker){
 function removeTalker(talker){
   model.talkers.splice(talker.id, 1);
 
-  removeRoom(talker.room, talker.peer);
-
   // Log
   // -----
   console.log('-- remove talker');
   console.log(' - talkers amount:');
   console.log(' - ' +model.talkers.length);
+  console.log(Object.prototype.toString.call(talker.room));
+
+  if(talker.room){
+    // Log
+    console.log(' - remove talker\'s room');
+    removeRoom(talker.room, talker.peer);
+  }
 }
 
 
@@ -103,8 +107,10 @@ function addRoom(talker){
 function removeRoom(room, peer){
   model.rooms.splice(room.id, 1);
 
+  room.talkers.forEach((talker)=>{ talker.room = undefined; });
+
   // Disable disconnected Talker's Peer
-  disableTalker(peer);
+  if(peer) disableTalker(peer);
 
   // Log
   console.log('-- remove room');

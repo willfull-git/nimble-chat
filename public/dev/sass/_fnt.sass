@@ -1,0 +1,28 @@
+/* ==============================
+ * Font
+ * ============================== */
+$path-font: '../../'
+
+/*
+ * # Mixin - Font Face
+ */
+@mixin font-face($font-nice-name, $font-path, $font-weight, $font-style)
+
+  @font-face
+    font-family: #{$font-nice-name}
+    src: url("#{$font-path}.eot")
+    src: url('#{$font-path}.eot?#iefix') format("embedded-opentype"), url('#{$font-path}.woff2') format("woff2"), url('#{$font-path}.woff') format("woff"), url('#{$font-path}.ttf') format("truetype"), url('#{$font-path}.svg#') format("svg")
+    font-weight: #{$font-weight}
+    font-style: #{$font-style}
+
+// Open Sans - Light Italic
+@include font-face('Open Sans', '/open-sans/open-sans-semibold', 750, normal)
+
+// Open Sans - Regular
+@include font-face('Open Sans', '/open-sans/open-sans-regular', 500, normal)
+
+// Open Sans - Light
+@include font-face('Open Sans', '/open-sans/open-sans-light', 250, normal)
+
+// Open Sans - Light Italic
+@include font-face('Open Sans', '/open-sans/open-sans-lightitalic', 250, italic)

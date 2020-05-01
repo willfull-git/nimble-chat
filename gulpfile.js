@@ -44,7 +44,7 @@ function watch()
   })
 
   // Sass
-  watchSass = bs.watch(pathDev+ 'sass/**/*.sass');
+  watchSass = bs.watch(pathSass+ '**/*.sass');
   watchSass.on('change', ()=>{
     console.log('Sass changed!');
 
@@ -52,7 +52,7 @@ function watch()
   })
 
   // Js
-  watchJs   = bs.watch(pathDev+ 'js/**/*.js');
+  watchJs   = bs.watch(pathJs+ '**/*.js');
   watchJs.on('change', ()=>{
     console.log('Js changed!');
 
@@ -71,7 +71,7 @@ function watch()
     ui: {
       port: 8081
     },
-    serveStatic: ['./public/dist']
+    serveStatic: ['./public/dist', './public/img', './public/fnt']
   });
 }
 

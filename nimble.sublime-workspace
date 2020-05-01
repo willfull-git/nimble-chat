@@ -11,15 +11,98 @@
 			"file": "views/chat.html",
 			"settings":
 			{
-				"buffer_size": 762,
+				"buffer_size": 1948,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/css/style.css",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 778,
+				"buffer_size": 820,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "modules/controller.js",
+			"settings":
+			{
+				"buffer_size": 2054,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/js/main.js",
+			"settings":
+			{
+				"buffer_size": 1324,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/js/render.js",
+			"settings":
+			{
+				"buffer_size": 509,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/js/message-templates.js",
+			"settings":
+			{
+				"buffer_size": 740,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 1618,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/sass/_chat.sass",
+			"settings":
+			{
+				"buffer_size": 105,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/sass/_block.sass",
+			"settings":
+			{
+				"buffer_size": 1492,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/sass/_btm-bar.sass",
+			"settings":
+			{
+				"buffer_size": 805,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dev/sass/_base.sass",
+			"settings":
+			{
+				"buffer_size": 258,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -69,11 +152,26 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/willfull/Sandbox/nimble-chat/modules"
+		"/Users/willfull/Sandbox/nimble-chat",
+		"/Users/willfull/Sandbox/nimble-chat/views"
 	],
 	"file_history":
 	[
+		"/Users/willfull/Sandbox/nimble-chat/public/dist/js/bundle.js",
+		"/Users/willfull/Sandbox/nimble-chat/node_modules/ajv/scripts/bundle.js",
+		"/Users/willfull/Sandbox/nimble-chat/node_modules/node-sass/lib/render.js",
+		"/Users/willfull/Sandbox/nimble-chat/public/dev/sass/_btm-bar.sass",
+		"/Users/willfull/Sandbox/nimble-chat/public/dist/css/main.css",
+		"/Users/willfull/Sandbox/nimble-chat/public/dev/sass/main.sass",
+		"/Users/willfull/Sandbox/nimble-chat/node_modules/node-sass/test/fixtures/watching/index.sass",
+		"/Users/willfull/Sandbox/nimble-chat/public/dev/sass/_base.sass",
+		"/Users/willfull/Sandbox/nimble-chat/public/dev/sass/_fnt.sass",
+		"/Users/willfull/Sandbox/nimble-chat/node_modules/bs-snippet-injector/index.html",
 		"/Users/willfull/Sandbox/nimble-chat/app.js",
+		"/Users/willfull/Sandbox/nimble-chat/public/dist/js/main.js",
+		"/Users/willfull/Sandbox/nimble-chat/node_modules/os-browserify/main.js",
+		"/Users/willfull/Server/maugo/wp-dev/gulpfile.js/index.js",
+		"/Users/willfull/Sandbox/nimble-chat/public/css/style.css",
 		"/Users/willfull/Sandbox/nimble-chat/modules/controller.js",
 		"/Users/willfull/Sandbox/nimble-chat/public/js/main.js",
 		"/Users/willfull/Sandbox/nimble-chat/modules/model.js",
@@ -81,7 +179,6 @@
 		"/Users/willfull/Sandbox/nimble-chat/modules/classTalker.js",
 		"/Users/willfull/Sandbox/nimble-chat/.gitignore",
 		"/Users/willfull/Sandbox/code-wars/main.js",
-		"/Users/willfull/Sandbox/nimble-chat/public/css/style.css",
 		"/Users/willfull/Sandbox/nimble-chat/views/chat.html",
 		"/Users/willfull/Sandbox/nimble-chat/views/front.html",
 		"/etc/services",
@@ -140,7 +237,6 @@
 		"/Users/willfull/Server/maugo/wp-content/plugins/ajax-product-loader/soothe-ajax-product-loader.php",
 		"/Users/willfull/Server/maugo/wp-content/plugins/ajax-product-loader/back/request_body_simple.php",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/loop/loop-start.php",
-		"/Users/willfull/Server/maugo/wp-dev/gulpfile.js/index.js",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/front/dev/js/ajax-infinite-scroll.js",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/emails/email-styles.php",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/emails/email-order-details.php",
@@ -188,19 +284,7 @@
 		"/Users/willfull/Server/maugo/index.html",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/loop/no-products-found.php",
 		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/form-edit-address.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/my-address.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/navigation.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/my-account.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/form-edit-account.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/dashboard.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/inc/puzzle-newsletter.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/block/puzzle-newsletter.php",
-		"/Users/willfull/Server/natalia/wp-content/puzzle-shop (backup)/puzzle/inc/puzzle-newsletter.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/style.css",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/inc/cpt.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/archive-lookbook.php",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/front/img/logo.svg",
-		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/puzzle/inc/puzzle-add-product-field.php"
+		"/Users/willfull/Server/maugo/wp-content/themes/puzzle-shop/woocommerce/myaccount/my-address.php"
 	],
 	"find":
 	{
@@ -218,6 +302,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"removeTalker",
+			"removeRoom",
+			"message",
+			"fnt",
+			"jQuery",
 			".txt",
 			"addRoom",
 			"processRoom",
@@ -234,6 +323,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -244,7 +334,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -253,15 +343,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 762,
+						"buffer_size": 1948,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								266,
-								266
+								1395,
+								1409
 							]
 						],
 						"settings":
@@ -274,33 +364,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 700.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
-					"file": "public/css/style.css",
+					"file": "app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 778,
+						"buffer_size": 820,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								515,
+								515
 							]
 						],
 						"settings":
@@ -308,7 +392,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -316,7 +400,298 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "modules/controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1208,
+								1208
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/dev/js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								412,
+								412
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 17.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/dev/js/render.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								464,
+								464
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/dev/js/message-templates.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1618,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								848,
+								848
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 587.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "public/dev/sass/_chat.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/dev/sass/_block.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1449,
+								1449
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 425.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "public/dev/sass/_btm-bar.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 805,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								343,
+								343
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 192.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "public/dev/sass/_base.sass",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								108
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Sass/Syntaxes/Sass.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -324,7 +699,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 40.0
 	},
 	"input":
 	{
@@ -350,7 +725,7 @@
 		"cols":
 		[
 			0.0,
-			0.655894639757,
+			0.633702256944,
 			1.0
 		],
 		"rows":
@@ -382,20 +757,72 @@
 		"selected_items":
 		[
 			[
-				"style.css",
-				"nimble-chat/public/css/style.css"
+				"bundle.js",
+				"nimble-chat/public/dist/js/bundle.js"
+			],
+			[
+				"controller.js",
+				"modules/controller.js"
+			],
+			[
+				"render.js",
+				"nimble-chat/public/dev/js/render.js"
+			],
+			[
+				"_btm-bar.sass",
+				"nimble-chat/public/dev/sass/_btm-bar.sass"
+			],
+			[
+				"main.sass",
+				"nimble-chat/public/dev/sass/main.sass"
+			],
+			[
+				"_main.sass",
+				"nimble-chat/node_modules/node-sass/test/fixtures/watching/index.sass"
+			],
+			[
+				"main.css",
+				"nimble-chat/public/dist/css/main.css"
+			],
+			[
+				"_base.sass",
+				"nimble-chat/public/dev/sass/_base.sass"
+			],
+			[
+				"_chat.sass",
+				"nimble-chat/public/dev/sass/_chat.sass"
+			],
+			[
+				"_fnt",
+				"nimble-chat/public/dev/sass/_fnt.sass"
+			],
+			[
+				"app.js",
+				"nimble-chat/app.js"
 			],
 			[
 				"chat.html",
 				"nimble-chat/views/chat.html"
 			],
 			[
-				".gitignore",
-				"nimble-chat/.gitignore"
+				"index.html",
+				"nimble-chat/node_modules/bs-snippet-injector/index.html"
 			],
 			[
 				"main.js",
-				"nimble-chat/public/js/main.js"
+				"nimble-chat/public/dev/js/main.js"
+			],
+			[
+				"gulpfile.js",
+				"nimble-chat/gulpfile.js"
+			],
+			[
+				"style.css",
+				"nimble-chat/public/css/style.css"
+			],
+			[
+				".gitignore",
+				"nimble-chat/.gitignore"
 			],
 			[
 				"model.js",
@@ -408,10 +835,6 @@
 			[
 				"front.html",
 				"views/front.html"
-			],
-			[
-				"app.js",
-				"app.js"
 			],
 			[
 				"puzzle-sidebar-cart-foot.php",
@@ -622,10 +1045,6 @@
 				"sass/_page-thank.sass"
 			],
 			[
-				"main.sass",
-				"sass/main.sass"
-			],
-			[
 				"page-product",
 				"js/page-single-product.js"
 			],
@@ -660,10 +1079,6 @@
 			[
 				"ajax-add-to-cart",
 				"inc/ajax-add-to-cart.php"
-			],
-			[
-				"_base.sass",
-				"sass/_base.sass"
 			],
 			[
 				"block.sass",
@@ -708,10 +1123,6 @@
 			[
 				"page-about-story.php",
 				"puzzle-shop/page-about-story.php"
-			],
-			[
-				"main.css",
-				"front/dist/css/main.css"
 			],
 			[
 				"unzip.php",
@@ -856,42 +1267,6 @@
 			[
 				"_page-single-school.sass",
 				"sass/_page-single-school.sass"
-			],
-			[
-				"page-team",
-				"js/page-archive-team.js"
-			],
-			[
-				"single-school.php",
-				"puzzle-blog/single-school.php"
-			],
-			[
-				"_page-ar",
-				"sass/_page-archive-team.sass"
-			],
-			[
-				"about.php",
-				"ski/wp-admin/about.php"
-			],
-			[
-				"archive-review.php",
-				"puzzle-blog/archive-review.php"
-			],
-			[
-				"page-team.js",
-				"js/page-archive-team.js"
-			],
-			[
-				"puzzle-tile-review.php",
-				"puzzle-blog/block/puzzle-tile-review.php"
-			],
-			[
-				"puzzle",
-				"puzzle-blog/block/puzzle-tile-review.php"
-			],
-			[
-				"puzzle-tile-review",
-				"puzzle-blog/block/puzzle-tile-review.php"
 			]
 		],
 		"width": 0.0
