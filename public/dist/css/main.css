@@ -333,7 +333,7 @@ html {
     align-self: flex-end; }
 
 .b-message.m-message_left {
-  background-color: rgba(255, 102, 255, 0.05); }
+  background-color: rgba(255, 102, 255, 0.1); }
   .b-message.m-message_left .b-message_main_txt {
     order: 1;
     background-color: #ff66ff;
@@ -372,6 +372,12 @@ html {
   .b-message.m-message_disconnect .b-message_main_txt:after {
     display: none; }
 
+.b-message.m-message_searching {
+  background-color: rgba(0, 0, 255, 0.05); }
+
+.b-message .b-message_main_txt:after {
+  display: none; }
+
 .s-chat {
   height: calc(100vh - 40px);
   width: 100vw;
@@ -381,7 +387,7 @@ html {
 .s-btm-bar {
   height: 40px;
   width: 100vw;
-  background-color: rgba(255, 102, 255, 0.05); }
+  background-color: rgba(255, 102, 255, 0.1); }
   .s-btm-bar_form {
     height: 40px;
     max-width: 992px;
@@ -406,7 +412,8 @@ html {
       border: none;
       position: relative;
       cursor: pointer;
-      outline: none; }
+      outline: none;
+      background-color: #fff; }
       .s-btm-bar_form_btn-disconnect img, .s-btm-bar_form_btn-send img {
         position: absolute;
         top: 50%;

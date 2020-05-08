@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /*!
- * jQuery JavaScript Library v3.5.0
+ * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -10,7 +10,7 @@
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2020-04-10T15:07Z
+ * Date: 2020-05-04T22:49Z
  */
 ( function( global, factory ) {
 
@@ -148,7 +148,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.5.0",
+	version = "3.5.1",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -4245,7 +4245,7 @@ Data.prototype = {
 
 		// If not, create one
 		if ( !value ) {
-			value = Object.create( null );
+			value = {};
 
 			// We can accept data for non-element nodes in modern browsers,
 			// but we should not, see #8335.
@@ -10873,30 +10873,23 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
-function disableClient(){
-  console.log('-- disable client');
-  console.log(' - ws:' );
-  console.log(ws);
+const { renderMessage } = require('./render');
+const { disableClient } = require('./controllerClient');
+const { tmpSearching }  = require('./message-templates');
 
-  ws.status = 'disable';
+// Constructor
+// -----
+module.exports = function(){
+  this.status = 'active'; // active, disable
+  this.wsc    = new WebSocket('ws://localhost:80/');
+
+  this.wsc.onmessage = onMessage;
+
+  // Render Searching message
+  renderMessage(tmpSearching, 'searching');
 }
 
-exports.disableClient = disableClient;
-},{}],3:[function(require,module,exports){
-const $ = require('jquery');
-const { renderMessage } = require('./render.js');
-const { disableClient } = require('./controllerClient.js');
-
-/* ==============================
- * # Web Socket
- * ============================== */
-
-/*
- * # Web Socket - Create Client
- */
-const ws = new WebSocket('ws://localhost:80/');
-
-ws.onmessage = function(res){
+function onMessage(res){
   let msg = JSON.parse(res.data);
 
   // Log
@@ -10905,24 +10898,43 @@ ws.onmessage = function(res){
 
   // Check Message type
   if(msg.type==='disable'){
-    disableClient();
+    disableClient(msg, ws);
   } else if(msg.type==='message'){
     renderMessage(msg, 'stranger');
   }
 }
+},{"./controllerClient":3,"./message-templates":5,"./render":6}],3:[function(require,module,exports){
+const { renderMessage } = require('./render.js');
 
-/*
- * Chat Main
- */
+exports.disableClient = (msg, ws)=>{
+  console.log('-- disable client');
+  console.log(' - ws:' );
+  console.log(ws);
+
+  ws.status = 'disable';
+
+  renderMessage(msg)
+}
+},{"./render.js":6}],4:[function(require,module,exports){
+const $ = require('jquery');
+const { renderMessage } = require('./render.js');
+const { tmpSearching }  = require('./message-templates.js');
+const WsClient = require('./WsClient.js');
+
+
+// Invoke on Document [ready]
+$(document).ready(()=>{
+
+// Chat Main
 const $chatMain = $('.s-chat_main');
 
-
-/*
- * Chat Form
- */
+// Chat Form
 const $chatForm = $('.s-btm-bar_form');
 const $chatInp  = $('.s-btm-bar_form_inp');
 const $chatBtn  = $('.s-btm-bar_form_btn');
+
+// Create Client obj
+let wsClient = new WsClient;
 
 $chatForm.on('submit', (e)=>{
   e.preventDefault();
@@ -10931,7 +10943,7 @@ $chatForm.on('submit', (e)=>{
   console.log('-- submit form');
 
   // Check if 'status = disable'
-  if(ws.status==='disable'){
+  if(ws.status || ws.status==='disable'){
     // Log
     console.log(' - client is in "disable" status');
 
@@ -10943,7 +10955,7 @@ $chatForm.on('submit', (e)=>{
   if(message){
     ws.send(message);
 
-    renderMessage({txt: message, type: 'message'}, 'self');
+    renderMessage(message, 'message', 'self');
   } else {
     // Log
     console.log(' - message is empty!');
@@ -10951,12 +10963,14 @@ $chatForm.on('submit', (e)=>{
 
   $chatInp.val('');
 })
-},{"./controllerClient.js":2,"./render.js":5,"jquery":1}],4:[function(require,module,exports){
-const $      = require('jquery');
+
+});
+},{"./WsClient.js":2,"./message-templates.js":5,"./render.js":6,"jquery":1}],5:[function(require,module,exports){
+const $ = require('jquery');
 
 // # Template - Message
 // -----
-const tmpMessage = function(txt, source){
+exports.tmpMessage = (txt, source)=>{
   let
     time          = new Date(),
     timeFormatted = time.getHours()+':'+time.getMinutes(),
@@ -10989,7 +11003,7 @@ const tmpMessage = function(txt, source){
 
 // # Template - Typing
 // -----
-const tmpTyping = function(txt){
+exports.tmpTyping = (txt)=>{
   `
     
   `;
@@ -10998,41 +11012,77 @@ const tmpTyping = function(txt){
 
 // # Template - Disconnect
 // -----
-const tmpDisconnect = function(txt){
-  `
-    
+exports.tmpDisconnect = ()=>{
+  return `
+    <div class="
+      b-message
+      m-message_disconnect
+    ">
+      <div class="
+        b-message_main
+      ">
+        <div class="
+          b-message_main_txt
+        ">
+          Talker disconnected! <button id="btn-start-new" type="button">Start new chat</button>
+        </div>
+      </div>
+    </div>
   `;
 }
 
 
-exports.tmpMessage    = tmpMessage;
-exports.tmpTyping     = tmpTyping;
-exports.tmpDisconnect = tmpDisconnect;
-},{"jquery":1}],5:[function(require,module,exports){
+// # Template - Disconnect
+// -----
+exports.tmpSearching = ()=>{
+  return `
+    <div class="
+      b-message
+      m-message_searching
+    ">
+      <div class="
+        b-message_main
+      ">
+        <div class="
+          b-message_main_txt
+        ">
+          Searching Talker..
+        </div>
+      </div>
+    </div>
+  `
+}
+},{"jquery":1}],6:[function(require,module,exports){
 const $     = require('jquery');
 const $chat = $('.s-chat');
-const { tmpMessage, tmpTyping, tmpDisconnect } = require('./message-templates.js');
+const { tmpMessage, tmpTyping, tmpDisconnect, tmpSearching } = require('./message-templates.js');
 
 
 // # Render Message
 // -----
-function renderMessage(msg, source){
+function renderMessage(msg, type, source){
   let tmp;
 
   // Log
   console.log('-- render message');
 
   // Find out 'message type'
-  if(msg.type==='message'){
+  if(type==='message'){
     // Log
-    console.log(' - message type message');
+    console.log(' - message type: message');
     tmp = tmpMessage(msg.txt, source);
 
-  } else if(msg.type==='typing'){
+  } else if(type==='typing'){
     tmp = tmpTyping(msg.txt, source);
 
-  } else if(msg.type==='disconnect'){
-    tmp = tmpDisconnect(msg.txt);
+  } else if(type==='disable'){
+    // Log
+    console.log(' - message type: disable');
+    tmp = tmpDisconnect();
+  } else if(type==='searching'){
+    // Log
+    console.log(' - message type: searching');
+    tmp = tmpSearching();
   }
 
   console.log(' - tmp: ');
@@ -11042,4 +11092,4 @@ function renderMessage(msg, source){
 };
 
 exports.renderMessage = renderMessage;
-},{"./message-templates.js":4,"jquery":1}]},{},[3]);
+},{"./message-templates.js":5,"jquery":1}]},{},[4]);

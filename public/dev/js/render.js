@@ -1,27 +1,33 @@
 const $     = require('jquery');
 const $chat = $('.s-chat');
-const { tmpMessage, tmpTyping, tmpDisconnect } = require('./message-templates.js');
+const { tmpMessage, tmpTyping, tmpDisconnect, tmpSearching } = require('./message-templates.js');
 
 
 // # Render Message
 // -----
-function renderMessage(msg, source){
+function renderMessage(msg, type, source){
   let tmp;
 
   // Log
   console.log('-- render message');
 
   // Find out 'message type'
-  if(msg.type==='message'){
+  if(type==='message'){
     // Log
-    console.log(' - message type message');
+    console.log(' - message type: message');
     tmp = tmpMessage(msg.txt, source);
 
-  } else if(msg.type==='typing'){
+  } else if(type==='typing'){
     tmp = tmpTyping(msg.txt, source);
 
-  } else if(msg.type==='disconnect'){
-    tmp = tmpDisconnect(msg.txt);
+  } else if(type==='disable'){
+    // Log
+    console.log(' - message type: disable');
+    tmp = tmpDisconnect();
+  } else if(type==='searching'){
+    // Log
+    console.log(' - message type: searching');
+    tmp = tmpSearching();
   }
 
   console.log(' - tmp: ');

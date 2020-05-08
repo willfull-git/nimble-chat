@@ -1,8 +1,8 @@
-const $      = require('jquery');
+const $ = require('jquery');
 
 // # Template - Message
 // -----
-const tmpMessage = function(txt, source){
+exports.tmpMessage = (txt, source)=>{
   let
     time          = new Date(),
     timeFormatted = time.getHours()+':'+time.getMinutes(),
@@ -35,7 +35,7 @@ const tmpMessage = function(txt, source){
 
 // # Template - Typing
 // -----
-const tmpTyping = function(txt){
+exports.tmpTyping = (txt)=>{
   `
     
   `;
@@ -44,13 +44,43 @@ const tmpTyping = function(txt){
 
 // # Template - Disconnect
 // -----
-const tmpDisconnect = function(txt){
-  `
-    
+exports.tmpDisconnect = ()=>{
+  return `
+    <div class="
+      b-message
+      m-message_disconnect
+    ">
+      <div class="
+        b-message_main
+      ">
+        <div class="
+          b-message_main_txt
+        ">
+          Talker disconnected! <button id="btn-start-new" type="button">Start new chat</button>
+        </div>
+      </div>
+    </div>
   `;
 }
 
 
-exports.tmpMessage    = tmpMessage;
-exports.tmpTyping     = tmpTyping;
-exports.tmpDisconnect = tmpDisconnect;
+// # Template - Disconnect
+// -----
+exports.tmpSearching = ()=>{
+  return `
+    <div class="
+      b-message
+      m-message_searching
+    ">
+      <div class="
+        b-message_main
+      ">
+        <div class="
+          b-message_main_txt
+        ">
+          Searching Talker..
+        </div>
+      </div>
+    </div>
+  `
+}

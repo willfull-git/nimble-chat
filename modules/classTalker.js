@@ -2,7 +2,7 @@ const model      = require('./model.js');
 
 // Constructor
 // -----
-function Talker(token, wsc){
+module.exports = (token, wsc)=>{
   this.id     = model.talkers.length;
   this.status = 'active'; // active, disable
   this.token  = token;
@@ -21,5 +21,3 @@ function Talker(token, wsc){
     }
   });
 }
-
-module.exports = Talker;

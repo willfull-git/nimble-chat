@@ -1,9 +1,10 @@
 const express    = require('express');
 const path       = require('path');
 const morgan     = require('morgan');
-const model      = require('./modules/model.js');
+const routerMain = require('./routes/main');
+const model      = require('./modules/model');
 const {addTalker, removeTalker} 
-                 = require('./modules/controller.js');
+                 = require('./modules/controller');
 const app        = express();
 
 // # Try
@@ -19,16 +20,11 @@ app.use(express.static('public/img'));
 
 // Router
 // -----
-app
-  .get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'views/front.html'));
-  })
-  .get('/chat', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'views/chat.html'));
-  })
-  .ws('/', (wsc, req)=>{
-    addTalker(wsc);
-  });
+app.use(routerMain);
+
+app.ws('/', (wsc, req)=>{
+  addTalker(wsc);
+});
 
 // Turn on HTTP server
 app.listen(80);

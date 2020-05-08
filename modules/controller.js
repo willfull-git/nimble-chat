@@ -8,10 +8,10 @@ const Room   = require('./classRoom.js');
 function addTalker(wsc){
   let talker = new Talker('token', wsc);
 
+  model.talkers.push(talker);
+
   // Add new Room or 'ready talker'
   addRoom(talker);
-
-  model.talkers.push(talker);
 
   // [event] message
   // -----
@@ -71,7 +71,6 @@ function removeTalker(talker){
   console.log('-- remove talker');
   console.log(' - talkers amount:');
   console.log(' - ' +model.talkers.length);
-  console.log(Object.prototype.toString.call(talker.room));
 
   if(talker.room){
     // Log
