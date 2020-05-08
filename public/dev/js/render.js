@@ -5,7 +5,7 @@ const { tmpMessage, tmpTyping, tmpDisconnect, tmpSearching } = require('./messag
 
 // # Render Message
 // -----
-function renderMessage(msg, type, source){
+exports.renderMessage = (msg, type, source)=>{
   let tmp;
 
   // Log
@@ -15,10 +15,10 @@ function renderMessage(msg, type, source){
   if(type==='message'){
     // Log
     console.log(' - message type: message');
-    tmp = tmpMessage(msg.txt, source);
+    tmp = tmpMessage(msg, source);
 
   } else if(type==='typing'){
-    tmp = tmpTyping(msg.txt, source);
+    tmp = tmpTyping(msg, source);
 
   } else if(type==='disable'){
     // Log
@@ -36,4 +36,17 @@ function renderMessage(msg, type, source){
   $chat.append(tmp);
 };
 
-exports.renderMessage = renderMessage;
+
+// # Destroy Message
+// -----
+exports.destroyMessage = (type)=>{
+  let msg = '';
+
+  if(type==='searching'){
+    msg = $('.m-message_searching');
+  }
+
+  msg.fadeOut(300, ()=>{
+    msg.remove();
+  });
+}

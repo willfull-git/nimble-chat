@@ -1,11 +1,9 @@
 const { renderMessage } = require('./render.js');
 
-exports.disableClient = (msg, ws)=>{
+exports.disableClient = (msg, wsClient)=>{
   console.log('-- disable client');
-  console.log(' - ws:' );
-  console.log(ws);
 
-  ws.status = 'disable';
+  wsClient.status = 'disable';
 
-  renderMessage(msg)
+  renderMessage(msg.txt, 'disable')
 }

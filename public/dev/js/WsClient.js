@@ -1,6 +1,5 @@
-const { renderMessage } = require('./render');
+const { renderMessage, destroyMessage } = require('./render');
 const { disableClient } = require('./controllerClient');
-const { tmpSearching }  = require('./message-templates');
 
 // Constructor
 // -----
@@ -11,7 +10,7 @@ module.exports = function(){
   this.wsc.onmessage = onMessage;
 
   // Render Searching message
-  renderMessage(tmpSearching, 'searching');
+  renderMessage('', 'searching');
 }
 
 function onMessage(res){
@@ -23,8 +22,10 @@ function onMessage(res){
 
   // Check Message type
   if(msg.type==='disable'){
-    disableClient(msg, ws);
+    disableClient(msg.txt, 'disable', this);
   } else if(msg.type==='message'){
-    renderMessage(msg, 'stranger');
+    renderMessage(msg.txt, 'message', 'stranger');
+  } else if(msg.type==='roomCreated'){
+    destroyMessage('searching');
   }
 }

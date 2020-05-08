@@ -10873,9 +10873,8 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
-const { renderMessage } = require('./render');
+const { renderMessage, destroyMessage } = require('./render');
 const { disableClient } = require('./controllerClient');
-const { tmpSearching }  = require('./message-templates');
 
 // Constructor
 // -----
@@ -10886,7 +10885,7 @@ module.exports = function(){
   this.wsc.onmessage = onMessage;
 
   // Render Searching message
-  renderMessage(tmpSearching, 'searching');
+  renderMessage('', 'searching');
 }
 
 function onMessage(res){
@@ -10898,22 +10897,22 @@ function onMessage(res){
 
   // Check Message type
   if(msg.type==='disable'){
-    disableClient(msg, ws);
+    disableClient(msg.txt, 'disable', this);
   } else if(msg.type==='message'){
-    renderMessage(msg, 'stranger');
+    renderMessage(msg.txt, 'message', 'stranger');
+  } else if(msg.type==='roomCreated'){
+    destroyMessage('searching');
   }
 }
-},{"./controllerClient":3,"./message-templates":5,"./render":6}],3:[function(require,module,exports){
+},{"./controllerClient":3,"./render":6}],3:[function(require,module,exports){
 const { renderMessage } = require('./render.js');
 
-exports.disableClient = (msg, ws)=>{
+exports.disableClient = (msg, wsClient)=>{
   console.log('-- disable client');
-  console.log(' - ws:' );
-  console.log(ws);
 
-  ws.status = 'disable';
+  wsClient.status = 'disable';
 
-  renderMessage(msg)
+  renderMessage(msg.txt, 'disable')
 }
 },{"./render.js":6}],4:[function(require,module,exports){
 const $ = require('jquery');
@@ -10936,14 +10935,18 @@ const $chatBtn  = $('.s-btm-bar_form_btn');
 // Create Client obj
 let wsClient = new WsClient;
 
+
+// [submit] Form
+// -----
 $chatForm.on('submit', (e)=>{
   e.preventDefault();
 
   // Log
   console.log('-- submit form');
+  console.log(wsClient);
 
   // Check if 'status = disable'
-  if(ws.status || ws.status==='disable'){
+  if(wsClient.status && wsClient.status==='disable'){
     // Log
     console.log(' - client is in "disable" status');
 
@@ -10953,7 +10956,7 @@ $chatForm.on('submit', (e)=>{
   let message = $chatInp.val();
 
   if(message){
-    ws.send(message);
+    wsClient.wsc.send(message);
 
     renderMessage(message, 'message', 'self');
   } else {
@@ -11060,7 +11063,7 @@ const { tmpMessage, tmpTyping, tmpDisconnect, tmpSearching } = require('./messag
 
 // # Render Message
 // -----
-function renderMessage(msg, type, source){
+exports.renderMessage = (msg, type, source)=>{
   let tmp;
 
   // Log
@@ -11070,10 +11073,10 @@ function renderMessage(msg, type, source){
   if(type==='message'){
     // Log
     console.log(' - message type: message');
-    tmp = tmpMessage(msg.txt, source);
+    tmp = tmpMessage(msg, source);
 
   } else if(type==='typing'){
-    tmp = tmpTyping(msg.txt, source);
+    tmp = tmpTyping(msg, source);
 
   } else if(type==='disable'){
     // Log
@@ -11091,5 +11094,18 @@ function renderMessage(msg, type, source){
   $chat.append(tmp);
 };
 
-exports.renderMessage = renderMessage;
+
+// # Destroy Message
+// -----
+exports.destroyMessage = (type)=>{
+  let msg = '';
+
+  if(type==='searching'){
+    msg = $('.m-message_searching');
+  }
+
+  msg.fadeOut(300, ()=>{
+    msg.remove();
+  });
+}
 },{"./message-templates.js":5,"jquery":1}]},{},[4]);

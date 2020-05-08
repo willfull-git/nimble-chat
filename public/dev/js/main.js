@@ -18,14 +18,18 @@ const $chatBtn  = $('.s-btm-bar_form_btn');
 // Create Client obj
 let wsClient = new WsClient;
 
+
+// [submit] Form
+// -----
 $chatForm.on('submit', (e)=>{
   e.preventDefault();
 
   // Log
   console.log('-- submit form');
+  console.log(wsClient);
 
   // Check if 'status = disable'
-  if(ws.status || ws.status==='disable'){
+  if(wsClient.status && wsClient.status==='disable'){
     // Log
     console.log(' - client is in "disable" status');
 
@@ -35,7 +39,7 @@ $chatForm.on('submit', (e)=>{
   let message = $chatInp.val();
 
   if(message){
-    ws.send(message);
+    wsClient.wsc.send(message);
 
     renderMessage(message, 'message', 'self');
   } else {

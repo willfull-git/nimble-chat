@@ -1,8 +1,8 @@
-const model      = require('./model.js');
+const model = require('./model.js');
 
 // Constructor
 // -----
-module.exports = (token, wsc)=>{
+module.exports = function(token, wsc){
   this.id     = model.talkers.length;
   this.status = 'active'; // active, disable
   this.token  = token;

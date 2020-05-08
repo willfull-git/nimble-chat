@@ -1,6 +1,6 @@
-const model  = require('./model.js');
-const Talker = require('./classTalker.js');
-const Room   = require('./classRoom.js');
+const model  = require('./model');
+const Talker = require('./classTalker');
+const Room   = require('./classRoom');
 
 
 // Add Talker
@@ -23,7 +23,8 @@ function addTalker(wsc){
         txt:  txt
       };
 
-    peer.wsc.send(JSON.stringify(msg));
+    if(peer)
+      peer.wsc.send(JSON.stringify(msg));
 
     // Log
     console.log('-- message');
@@ -83,20 +84,31 @@ function removeTalker(talker){
 // Add Room
 // =====
 function addRoom(talker){
+  // Log
+  console.log('-- add room');
+
   // Check for 'ready talker'
   if(model.readyTalker && model.readyTalker instanceof Object){
+    // Log
+    console.log(' - add new room');
+
     let
       room = new Room([model.readyTalker, talker]);
 
     model.readyTalker = undefined;
 
-    // Log
-    console.log('-- add new room');
-  } else {
-    model.readyTalker = talker;
+    let msg = {
+      type: 'roomCreated',
+      txt:  ''
+    }
 
+    talker.wsc.send(JSON.stringify(msg));
+    talker.peer.wsc.send(JSON.stringify(msg));
+  } else {
     // Log
-    console.log('-- set ready talker');
+    console.log(' - set ready talker');
+
+    model.readyTalker = talker;
   }
 }
 
