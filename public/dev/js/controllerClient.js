@@ -5,5 +5,5 @@ exports.disableClient = (msg, wsClient)=>{
 
   wsClient.status = 'disable';
 
-  renderMessage(msg.txt, 'disable')
+  renderMessage(msg.txt, 'disable');
 }

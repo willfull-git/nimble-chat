@@ -1,14 +1,12 @@
-const express    = require('express');
 const path       = require('path');
 const morgan     = require('morgan');
-const routerMain = require('./routes/main');
-const model      = require('./modules/model');
-const {addTalker, removeTalker} 
-                 = require('./modules/controller');
-const app        = express();
 
-// # Try
-const expressWs = require('express-ws')(app);
+const express    = require('express');
+const app        = express();
+const expressWs  = require('express-ws')(app);
+
+const httpController = require('./controllers/http');
+const wsController   = require('./controllers/ws');
 
 // HTTP logging
 app.use(morgan('dev'));
@@ -20,11 +18,9 @@ app.use(express.static('public/img'));
 
 // Router
 // -----
-app.use(routerMain);
-
-app.ws('/', (wsc, req)=>{
-  addTalker(wsc);
-});
+app
+  .get('/', httpController)
+  .ws('/', wsController);
 
 // Turn on HTTP server
 app.listen(80);

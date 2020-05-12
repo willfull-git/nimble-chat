@@ -1,6 +1,8 @@
 const $ = require('jquery');
-const { renderMessage } = require('./render.js');
-const { tmpSearching }  = require('./message-templates.js');
+const { renderMessage }
+               = require('./render.js');
+const { tmpSearching }
+               = require('./message-templates.js');
 const WsClient = require('./WsClient.js');
 
 
@@ -17,6 +19,7 @@ const $chatBtn  = $('.s-btm-bar_form_btn');
 
 // Create Client obj
 let wsClient = new WsClient;
+debugWsClient = wsClient;
 
 
 // [submit] Form

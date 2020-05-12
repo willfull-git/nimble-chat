@@ -10912,12 +10912,14 @@ exports.disableClient = (msg, wsClient)=>{
 
   wsClient.status = 'disable';
 
-  renderMessage(msg.txt, 'disable')
+  renderMessage(msg.txt, 'disable');
 }
 },{"./render.js":6}],4:[function(require,module,exports){
 const $ = require('jquery');
-const { renderMessage } = require('./render.js');
-const { tmpSearching }  = require('./message-templates.js');
+const { renderMessage }
+               = require('./render.js');
+const { tmpSearching }
+               = require('./message-templates.js');
 const WsClient = require('./WsClient.js');
 
 
@@ -10934,6 +10936,7 @@ const $chatBtn  = $('.s-btm-bar_form_btn');
 
 // Create Client obj
 let wsClient = new WsClient;
+debugWsClient = wsClient;
 
 
 // [submit] Form
@@ -11058,7 +11061,12 @@ exports.tmpSearching = ()=>{
 },{"jquery":1}],6:[function(require,module,exports){
 const $     = require('jquery');
 const $chat = $('.s-chat');
-const { tmpMessage, tmpTyping, tmpDisconnect, tmpSearching } = require('./message-templates.js');
+const {
+  tmpMessage,
+  tmpTyping,
+  tmpDisconnect,
+  tmpSearching
+} = require('./message-templates.js');
 
 
 // # Render Message

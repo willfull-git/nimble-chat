@@ -1,6 +1,11 @@
 const $     = require('jquery');
 const $chat = $('.s-chat');
-const { tmpMessage, tmpTyping, tmpDisconnect, tmpSearching } = require('./message-templates.js');
+const {
+  tmpMessage,
+  tmpTyping,
+  tmpDisconnect,
+  tmpSearching
+} = require('./message-templates.js');
 
 
 // # Render Message

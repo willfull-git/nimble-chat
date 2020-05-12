@@ -62,17 +62,17 @@ function watch()
   })
 
   // Bs - Init
-  var server = bs.init({
-    server: {
-      baseDir: './views',
-      index: 'chat.html'
-    },
-    port: 8080,
-    ui: {
-      port: 8081
-    },
-    serveStatic: ['./public/dist', './public/img', './public/fnt']
-  });
+  // var server = bs.init({
+  //   server: {
+  //     baseDir: './views',
+  //     index: 'chat.html'
+  //   },
+  //   port: 8080,
+  //   ui: {
+  //     port: 8081
+  //   },
+  //   serveStatic: ['./public/dist', './public/img', './public/fnt']
+  // });
 }
 
 exports.sass    = sass;

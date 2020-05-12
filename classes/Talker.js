@@ -1,11 +1,10 @@
-const model = require('./model.js');
+const model = require('../model.js');
 
 // Constructor
 // -----
-module.exports = function(token, wsc){
+module.exports = function(wsc){
   this.id     = model.talkers.length;
-  this.status = 'active'; // active, disable
-  this.token  = token;
+  this.status = 'pending'; // pending, active, disable
   this.wsc    = wsc;
   this.room   = undefined;
 
@@ -20,4 +19,11 @@ module.exports = function(token, wsc){
       },
     }
   });
+
+  this.send = function(msg){
+    console.log('-- talker send message');
+    console.log(' - msg: ' +msg.txt);
+
+    this.wsc.send(JSON.stringify(msg));
+  }
 }
