@@ -9,11 +9,36 @@ module.exports = function(talkers){
   this.talkers = talkers;
 
   this.activate = function(){
-    if(!talkers.length===2) return;
+    // Log
+    console.log('-- room activate');
+    console.log(` - talkers amount ${this.talkers.length}`);
+    // console.dir(this.talkers);
 
-    this.status = 'active';
+    if(!this.talkers.length===2) return;
+
     this.talkers.forEach((talker)=>{
       talker.send(new Message('active'));
     });
+
+    this.talkers.forEach((talker)=>{
+      talker.room = this;
+    })
+
+    this.status = 'active';
+  }
+
+  this.disable = function(){
+    // Log
+    console.log(`-- disable room ${this.id}`);
+
+    if(this.status!=='disable') {
+      this.status = 'disable';
+
+      // Log
+      console.log(' - room disabled');
+    } else {
+      // Log
+      console.log('-- already disabled');
+    }
   }
 }

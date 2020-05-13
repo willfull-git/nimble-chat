@@ -9,15 +9,17 @@ module.exports = (wsc, req)=>{
   const talker = addTalker(wsc);
   const room   = addRoom(talker);
 
-  wsc.on('message', (msg)=>{
+  wsc.on('message', (msgTxt)=>{
     // Log
     console.log('-- [ws message]');
 
-    talker.send(new Message('message', msg.data));
+    talker.sendToPeer(new Message('message', msgTxt));
+
+    console.log(new Message('message', msgTxt));
 
     // Log
     console.log('-- message');
-    console.log(' - "' +msg.data+ '"');
+    console.log(' - "' +msgTxt+ '"');
   });
 
   wsc.on('close', (code, reason)=>{

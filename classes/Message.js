@@ -15,4 +15,15 @@ module.exports = function(type, txt){
       this.txt = 'Chat ended';
       break;
   }
+
+  Object.defineProperties(this, {
+    "toString": {
+      writable: true,
+      enumerable: false,
+      configurable: true,
+      value: function(){
+        return JSON.stringify(this);
+      }
+    }
+  });
 }

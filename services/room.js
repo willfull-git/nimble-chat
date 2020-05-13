@@ -43,8 +43,5 @@ exports.removeRoom = (room, peer)=>{
   room.talkers.forEach((talker)=>{ talker.room = undefined; });
 
   // Disable disconnected Talker's Peer
-  if(peer) disableTalker(peer);
-
-  // Log
-  console.log('-- remove room');
+  if(peer) peer.disable();
 }

@@ -22,5 +22,11 @@ app
   .get('/', httpController)
   .ws('/', wsController);
 
+// Error Handler
+process.on('uncaughtException', (err, origin)=>{
+  // Log
+  console.log(err);
+});
+
 // Turn on HTTP server
 app.listen(80);

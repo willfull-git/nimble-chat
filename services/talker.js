@@ -2,7 +2,8 @@ const model   = require('../model');
 const Room    = require('../classes/Room');
 const Talker  = require('../classes/Talker');
 const Message = require('../classes/Message');
-const serviceRoom = require('./room');
+const { addRoom, removeRoom }
+              = require('./room');
 
 
 // Add Talker
@@ -20,27 +21,10 @@ exports.addTalker = (wsc)=>{
 
   // Log
   // -----
-  console.log('-- add talker');
+  console.log(`-- add talker ${talker.id}`);
   console.log(' - talkers amount: '+ model.talkers.length);
 
   return talker;
-}
-
-
-// Disable Talker
-// =====
-exports.disableTalker = (talker)=>{
-  let msg = {
-    type: 'disable',
-    txt:  'Your Peer has leave!'
-  };
-
-  talker.wsc.send(JSON.stringify(msg));
-
-  // Log
-  // -----
-  console.log('-- disable talker');
-  console.log(' - '+ msg.txt);
 }
 
 
@@ -50,10 +34,8 @@ exports.removeTalker = (talker)=>{
   model.talkers.splice(talker.id, 1);
 
   // Log
-  // -----
-  console.log('-- remove talker');
-  console.log(' - talkers amount:');
-  console.log(' - ' +model.talkers.length);
+  console.log(`-- remove talker ${talker.id}`);
+  console.log(` - talkers amount: ${model.talkers.length}`);
 
   if(talker.room){
     // Log
